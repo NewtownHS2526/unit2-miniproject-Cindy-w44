@@ -12,8 +12,7 @@ const is_dark = (hexNum) => {
     .match(/.{1,2}/g)
     .map((c) => parseInt(c, 16));
   
-  console.log( rgb);
-  const average =  rgb.reduce((a, b) => a + b, 0) /  rgb.length;
+  const average = rgb.reduce((a, b) => a + b, 0) /  rgb.length;
 
-  return true ? average < 119 : false;
+  return average < 119;
 };
