@@ -87,23 +87,21 @@ textBox.addEventListener("keydown", (event) => {
 const backgroundColor = document.querySelector("#color");
 const submitButton = document.querySelector("#submit");
 const body = document.querySelector("body");
-
 const checkBox = document.querySelector("#human");
 
-const isHuman = () => {
-    if (checkBox.addEventListener("click")) {
-        submitButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        if (is_dark(backgroundColor.value)) {
-        alert("Choose another color! This one is too dark!");
-        } else {
-        body.style.backgroundColor = backgroundColor.value;
-        };
-});
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!checkBox.checked) {
+        alert("Please confirm humanity first!");
+        return;
+    }
+
+    if (is_dark(backgroundColor.value)) {
+    alert("Choose another color! This one is too dark!");
+    } else {
+    body.style.backgroundColor = backgroundColor.value;
     };
-};
-
-
+});
 
 // getRandomInt() - gets a random number between 1 and 100
 // is_dark(hex) - takes in a hex number (for example #123456) and returns true if it's dark and false if it's light.
